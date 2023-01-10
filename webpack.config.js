@@ -19,6 +19,10 @@ module.exports = {
 				use: ['style-loader', 'css-loader', 'postcss-loader']
 			},
 			{
+				test: /\.js$/,
+				use: 'ify-loader'
+			},
+			{
 				test: /\.(png|svg|jpg|jpeg|gif)/i,
 				type: 'asset/resource'
 			}
