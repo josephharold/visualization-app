@@ -7,5 +7,6 @@ urlpatterns = [
 	path('dengue/get_dataset', views.getDengueDataSet, name='getDengueDataset'),
 	path('dengue/getNumOfCases', views.getNumOfCases, name='getNumOfCases'),
 	path('dengue/getNumOfDeaths', views.getNumOfDeaths, name='getNumOfDeaths'),
+	path('dengue/getPercentOfDeaths', views.getPercentOfDeaths, name='getPercentOfDeaths'),
 	path('flood/getFloodDataset', views.getFloodDataset, name='getFloodDataset'),
 ]

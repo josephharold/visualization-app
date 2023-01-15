@@ -50,17 +50,55 @@ const fetchNumOfCases = async()=>{
 	let res = await axios.get('http://127.0.0.1:8000/dengue/getNumOfCases')
 	// numOfCases.innerHTML = JSON.stringify(data.data);
 	res = res.data
+	console.log(res);
 	const labels = res.map(
 		e=>{
-			return Object.keys(e)[0]
+			return e.region 
 		}
 	)
 	const data = res.map(
 		e=>{
-			return Object.values(e)[0]
+			return e.cases 
 		}
 	)
-	
+	new Chart(
+		document.getElementById('dengueNumOfCases_bar'),
+		{
+			type: 'bar',
+			data: {
+				labels: labels,
+				datasets: [
+					{
+						label: 'numberOfCases',
+						data: data,
+						backgroundColor: [
+							'rgba(255, 99, 132)',
+							'rgba(255, 159, 64)',
+							'rgba(255, 205, 86)',
+							'rgba(75, 192, 192)',
+							'rgba(54, 162, 235)',
+							'rgba(153, 102, 255)',
+							'rgba(201, 203, 207)'
+						]
+					}
+				],
+				options: {
+					interaction: {
+            mode: 'x'
+					},
+					animations: {
+						tension: {
+							duration: 1000,
+							easing: 'linear',
+							from: 1,
+							to: 0,
+							loop: true
+						}
+					}
+				}
+			}
+		}
+	)
 	new Chart(
 		document.getElementById('dengueNumOfCases'),
 		{
@@ -102,12 +140,12 @@ const fetchNumOfDeaths = async()=>{
 	res = res.data
 	const labels = res.map(
 		e=>{
-			return Object.keys(e)[0]
+			return e.region
 		}
 	)
 	const data = res.map(
 		e=>{
-			return Object.values(e)[0]
+			return e.deaths
 		}
 	)
 	
@@ -150,8 +188,62 @@ const fetchNumOfDeaths = async()=>{
 		}
 	);
 }
+const fetchPercentOfDeaths = async()=>{
+	let res = await axios.get('http://127.0.0.1:8000/dengue/getPercentOfDeaths')
+	res = res.data
+	const labels = res.map(
+		e=>{
+			return e.region
+		}
+	)
+	const data = res.map(
+		e=>{
+			return e.percent
+		}
+	)
+	
+	new Chart(
+		document.getElementById('denguePercentOfDeaths'),
+		{
+			type: 'bar',
+			data: {
+				labels: labels,
+				datasets: [
+					{
+						label: 'death percentage',
+						data: data,
+						backgroundColor: [
+							'rgba(255, 99, 132)',
+							'rgba(255, 159, 64)',
+							'rgba(255, 205, 86)',
+							'rgba(75, 192, 192)',
+							'rgba(54, 162, 235)',
+							'rgba(153, 102, 255)',
+							'rgba(201, 203, 207)'
+						]
+					}
+				],
+				options: {
+					interaction: {
+            mode: 'x'
+					},
+					animations: {
+						tension: {
+							duration: 1000,
+							easing: 'linear',
+							from: 1,
+							to: 0,
+							loop: true
+						}
+					}
+				}
+			}
+		}
+	);
+}
 export {
 	fetchData,
 	fetchNumOfCases,
-	fetchNumOfDeaths
+	fetchNumOfDeaths,
+	fetchPercentOfDeaths
 };

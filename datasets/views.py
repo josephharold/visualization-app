@@ -34,17 +34,37 @@ def getDengueDataSet(request):
 def getNumOfCases(request):
 	res = [] 
 	for i in region_names:
+		dct = {}
 		sum = dengueDataset.loc[dengueDataset['Region'] == i]['cases'].sum()
-		res.append({i: sum}) 
+		dct['region'] = i   
+		dct['cases'] = sum
+		res.append(dct)
+	res = sorted(res, key=lambda x: x['cases'], reverse = False)
 	return JsonResponse(res, safe=False)
 
 def getNumOfDeaths(request):	
 	res = [] 
 	for i in region_names:
+		dct = {}
 		sum = dengueDataset.loc[dengueDataset['Region'] == i]['deaths'].sum()
-		res.append({i: sum}) 
+		dct['region'] = i
+		dct['deaths'] = sum
+		res.append(dct) 
+	res = sorted(res, key=lambda x: x['deaths'])
 	return JsonResponse(res, safe=False)
 
+def getPercentOfDeaths(request):
+	res = [] 
+	for i in region_names:
+		dct = {}
+		deaths = dengueDataset.loc[dengueDataset['Region'] == i]['deaths'].sum()
+		cases = dengueDataset.loc[dengueDataset['Region'] == i]['cases'].sum()
+		percent =  (deaths / cases)* 100
+		dct['region'] = i
+		dct['percent'] = round(percent, 2) 
+		res.append(dct) 
+	res = sorted(res, key=lambda x: x['percent'])
+	return JsonResponse(res, safe=False)
 
 # ! floodDataset
 

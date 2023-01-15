@@ -11,7 +11,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4.js" data-export="true"></script>
 </head>
 <body class="bg-white text-black">
-	<div class="nav w-2/12 fixed border-4 font-bold border-white z-40 top-0 bottom-0 left-0 p-10">
+	<!-- <div class="nav w-2/12 fixed border-4 font-bold border-white z-40 top-0 bottom-0 left-0 p-10">
 		<ul>
 			<li class="mt-5 mb-5">
 				<div class="text-xl cursor-pointer ease-in-out duration-300 hover:scale-105">Dengue dataset</div>
@@ -21,27 +21,60 @@
 			</li>
 		</ul>
 
-	</div>
+	</div> -->
 	<!-- container -->
-	<div class="grid w-10/12 ml-auto justify-end grid-cols-2 gap-5 p-12">
-		<h1 class="col-span-2 text-xl font-bold">Dengue Cases ranked by Date</h1>
-		<div class="col-span-2 rounded-lg border border-slate-200 bg-slate-100 shadow-sm p-8 h-full">
-			<canvas id="dengueDataset" class="m-auto w-full">
-			</canvas>
+	<div class="grid w-12/12 ml-auto justify-end grid-cols-2 gap-5 p-12">
+		<div class="flex flex-col gap-6 col-span-2 p-2 rounded-lg">
+			<h1 class="text-xl font-bold">Dengue Cases ranked by Date</h1>
+			<div class="rounded-lg border border-slate-200 bg-slate-100 shadow-sm p-8 w-4/5 mx-auto">
+				<canvas id="dengueDataset" class="m-auto w-10/12">
+				</canvas>
+			</div>
+			<div class="text-center text-xl">The trend of dengue cases have been <b>consistent in the years 2016-2018</b></div>
+			<div class="text-center text-xl">Spikes consistently <b>happen around the 6 month of every year</b></div>
+			<div class="text-center text-xl">However,around <b class="text-2xl">June 2019 occured the biggest spike</b></div>
 		</div>
-		<h1 class="col-span-2 text-xl font-bold">Regional Cases Proportion</h1>
-		<div class="col-span-2 rounded-lg border border-slate-200 bg-slate-100 shadow-sm p-8 h-8/12">
-			<canvas id="dengueNumOfCases" class="w-full m-auto">
-			</canvas>
+		<hr class="col-span-2 border border-slate-500">
+		<div class="grid grid-cols-4 gap-6 p-2 col-span-2 rounded-lg">
+			<h1 class="col-span-4 text-xl font-bold">Regional Cases</h1>
+			<div class="col-span-2 rounded-lg border border-slate-200 bg-slate-100 shadow-sm p-8 h-8/12">
+				<canvas id="dengueNumOfCases" class="w-full m-auto">
+				</canvas>
+			</div>
+			<div class="col-span-2 rounded-lg border border-slate-200 bg-slate-100 shadow-sm p-8 h-8/12">
+				<canvas id="dengueNumOfCases_bar" class="w-full m-auto">
+				</canvas>
+			</div>
+			<div class="col-span-4 flex flex-col justify-evenly">
+				<div class="text-justify text-xl"><b>Calabarzon</b> accounted for most of the cases</div>
+				<div class="text-justify text-xl">this is followed by <b>Central Luzon</b> and <b>Western Visayas</b></div>
+			</div>
 		</div>
-		<h1 class="col-span-2 text-xl font-bold">Dengue Deaths Per Region</h1>
-		<div class="col-span-2 rounded-lg border border-slate-200 bg-slate-100 shadow-sm p-8 h-8/12">
-			<canvas id="dengueNumOfDeaths" class="w-full">
-				numofdeaths
-			</canvas>
+		<hr class="col-span-2 border border-slate-500">
+		<div class="flex flex-col gap-6 p-2 col-span-2 rounded-lg">
+			<h1 class="text-xl font-bold">Deaths Per Region</h1>
+			<div class="rounded-lg border border-slate-200 bg-slate-100 shadow-sm w-4/5 mx-auto p-8 h-8/12">
+				<canvas id="dengueNumOfDeaths" class="w-full">
+					numofdeaths
+				</canvas>
+			</div>
+			<div class="text-center text-xl"><b>NCR</b> had the most deaths</div>
+			<div class="text-center text-xl">this is followed by <b>REGION VII</b> and <b>Western Visayas</b></div>
 		</div>
-		<h1 class="col-span-2 text-xl font-bold">Flood Levels in Metro Manila</h1>
-		<div id="container" class="rounded-lg container border border-slate-200 bg-slate-100 shadow-sm p-8 h-8/12 col-span-2 w-full h-screen m-0 p-0">
+		<hr class="col-span-2 border border-slate-500">
+		<div class="flex flex-col gap-6 p-2 col-span-2 rounded-lg">
+			<h1 class="text-xl font-bold">Death to Case Percentage</h1>
+			<div class="rounded-lg border border-slate-200 bg-slate-100 shadow-sm w-4/5 mx-auto p-8 h-8/12">
+				<canvas id="denguePercentOfDeaths" class="w-full">
+					numofdeaths
+				</canvas>
+			</div>
+			<div class="text-center text-xl"><b>Region XII</b> accounts for most number of deaths with respect to the number of cases</div>
+		</div>
+		<hr class="col-span-2 border border-slate-500">
+		<div class="grid grid-cols-4 gap-6 p-2 col-span-2 rounded-lg">
+			<h1 class="col-span-4 text-xl font-bold">Flood Levels in Metro Manila</h1>
+			<div id="container" class="rounded-lg container border border-slate-200 bg-slate-100 shadow-sm p-8 h-8/12 col-span-4 w-full h-screen m-0 p-0"></div>
 		</div>
 	</div>
 	<script src="{% static 'bundle.js' %}"></script>
