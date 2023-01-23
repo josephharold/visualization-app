@@ -1,7 +1,7 @@
 
 # VISUALIZATION APP
 
-A web app that uses visualizations techniques to extract ideas from datasets. This is webapp is made for the requirement for ITD112.
+A web app that uses visualizations techniques to extract ideas from datasets. This webapp is made for the requirement for ITD112.
 
 ## Installation Instructions:
 
