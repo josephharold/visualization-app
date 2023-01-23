@@ -23,7 +23,8 @@ Install python dependencies:
 Note that you may have to change the directories written in the app for it to run properly.
 
 ## References:
-Manila flooding dataset
+Manila flooding dataset:
 * https://www.kaggle.com/datasets/giologicx/aegisdataset
+
 Dengue Dataset:
 * https://online.msuiit.edu.ph/moodle/mod/resource/view.php?id=134252
