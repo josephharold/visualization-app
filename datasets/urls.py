@@ -9,4 +9,5 @@ urlpatterns = [
 	path('dengue/getNumOfDeaths', views.getNumOfDeaths, name='getNumOfDeaths'),
 	path('dengue/getPercentOfDeaths', views.getPercentOfDeaths, name='getPercentOfDeaths'),
 	path('flood/getFloodDataset', views.getFloodDataset, name='getFloodDataset'),
+	path('flood/getFloodDataset_precip', views.getFloodDataset_precip, name='getFloodDataset_precip'),
 ]

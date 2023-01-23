@@ -46,24 +46,30 @@
 				</canvas>
 			</div>
 			<div class="col-span-4 flex flex-col justify-evenly">
-				<div class="text-justify text-xl"><b>Calabarzon</b> accounted for most of the cases</div>
-				<div class="text-justify text-xl">this is followed by <b>Central Luzon</b> and <b>Western Visayas</b></div>
+				<div class="text-center text-xl"><b>Calabarzon</b> accounted for most of the cases</div>
+				<div class="text-center text-xl">this is followed by <b>Central Luzon</b> and <b>Western Visayas</b></div>
 			</div>
 		</div>
 		<hr class="col-span-2 border border-slate-500">
-		<div class="flex flex-col gap-6 p-2 col-span-2 rounded-lg">
-			<h1 class="text-xl font-bold">Deaths Per Region</h1>
-			<div class="rounded-lg border border-slate-200 bg-slate-100 shadow-sm w-4/5 mx-auto p-8 h-8/12">
+		<div class="grid grid-cols-4 gap-6 p-2 col-span-2 rounded-lg">
+			<h1 class="col-span-4 text-xl font-bold">Deaths Per Region</h1>
+			<div class="col-span-2 rounded-lg border border-slate-200 bg-slate-100 shadow-sm w-4/5 mx-auto p-8 h-8/12">
 				<canvas id="dengueNumOfDeaths" class="w-full">
 					numofdeaths
 				</canvas>
 			</div>
-			<div class="text-center text-xl"><b>NCR</b> had the most deaths</div>
-			<div class="text-center text-xl">this is followed by <b>REGION VII</b> and <b>Western Visayas</b></div>
+			<div class="col-span-2 rounded-lg border border-slate-200 bg-slate-100 shadow-sm w-4/5 mx-auto p-8 h-full">
+				<canvas id="dengueNumOfDeaths_pie" class="w-full">
+					numofdeaths
+				</canvas>
+			</div>
+			<div class="col-span-4 text-center text-xl"><b>NCR</b> had the most deaths</div>
+			<div class="col-span-4 text-center text-xl">this is followed by <b>REGION VII</b> and <b>Western Visayas</b></div>
 		</div>
 		<hr class="col-span-2 border border-slate-500">
 		<div class="flex flex-col gap-6 p-2 col-span-2 rounded-lg">
 			<h1 class="text-xl font-bold">Death to Case Percentage</h1>
+			<div class="col-span-4 text-xl">Percentage is calculate by <b>Death divided by the number of cases multiplied by a hundred</b></div>
 			<div class="rounded-lg border border-slate-200 bg-slate-100 shadow-sm w-4/5 mx-auto p-8 h-8/12">
 				<canvas id="denguePercentOfDeaths" class="w-full">
 					numofdeaths
@@ -74,7 +80,26 @@
 		<hr class="col-span-2 border border-slate-500">
 		<div class="grid grid-cols-4 gap-6 p-2 col-span-2 rounded-lg">
 			<h1 class="col-span-4 text-xl font-bold">Flood Levels in Metro Manila</h1>
+			<div class="text-lg col-span-4">Manila is always flooded due to consistent storms in the country</div>
+			<div class="text-lg col-span-4">This dataset includes preciptation, and flood levels</div>
+			<div class="text-xl font-bold col-span-2">
+				<div><b>0</b> - No flood</div>
+				<div><b>2</b> - Ankle Height</div>
+				<div><b>4</b> - Waist Height</div>
+				<div><b>6</b> - Neck Height</div>
+				<div><b>8</b> - Top of the Head height</div>
+				<div><b>10</b> - 1 Story Height</div>
+				<div><b>12</b> - 1.5 Story Height</div>
+				<div><b>14</b> -	2 Storeys</div>
+			</div>
+			<div class="text-xl col-span-2">
+				<div><b>Precipitation - precipitat (millimetres/hour)</b></div>
+				<div>- water that falls down from the clouds to the ground <a href="https://www.britannica.com/science/precipitation">(Brittanica)</a></div>
+				<div>measured in (millimetres/hour)</div>
+			</div>
 			<div id="container" class="rounded-lg container border border-slate-200 bg-slate-100 shadow-sm p-8 h-8/12 col-span-4 w-full h-screen m-0 p-0"></div>
+			<div id="floodDataset_precip" class="rounded-lg container border border-slate-200 bg-slate-100 shadow-sm p-8 h-8/12 col-span-4 w-full h-screen m-0 p-0"></div>
+			<div class="text-md"><b>Reference</b>: <a href="https://www.kaggle.com/datasets/giologicx/aegisdataset">https://www.kaggle.com/datasets/giologicx/aegisdataset</a></div>
 		</div>
 	</div>
 	<script src="{% static 'bundle.js' %}"></script>

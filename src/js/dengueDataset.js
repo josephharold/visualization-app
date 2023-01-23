@@ -187,6 +187,41 @@ const fetchNumOfDeaths = async()=>{
 			}
 		}
 	);
+	new Chart(
+		document.getElementById('dengueNumOfDeaths_pie'),
+		{
+			type: 'pie',
+			data: {
+				labels: labels,
+				datasets: [
+					{
+						label: 'number Of Deaths',
+						data: data,
+						backgroundColor: [
+							'rgba(255, 99, 132)',
+							'rgba(255, 159, 64)',
+							'rgba(255, 205, 86)',
+							'rgba(75, 192, 192)',
+							'rgba(54, 162, 235)',
+							'rgba(153, 102, 255)',
+							'rgba(201, 203, 207)'
+						]
+					}
+				],
+				options:{
+					animations: {
+						tension: {
+							duration: 1000,
+							easing: 'linear',
+							from: 1,
+							to: 0,
+							loop: true
+						}
+					},
+				}
+			}
+		}
+	);
 }
 const fetchPercentOfDeaths = async()=>{
 	let res = await axios.get('http://127.0.0.1:8000/dengue/getPercentOfDeaths')

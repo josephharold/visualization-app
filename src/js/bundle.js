@@ -1,5 +1,5 @@
 import '../styles/style.css';
-import getFloodDataset from './floodDataset';
+import {getFloodDataset, getFloodDataset_precip} from './floodDataset';
 import {fetchData, fetchNumOfCases, fetchNumOfDeaths, fetchPercentOfDeaths} from './dengueDataset'
 // import fetchFloodData from './floodDataset';
 fetchData();
@@ -7,6 +7,7 @@ fetchNumOfCases();
 fetchNumOfDeaths();
 fetchPercentOfDeaths();
 getFloodDataset();
+getFloodDataset_precip();
 
 const accordions = document.getElementsByClassName('accordion');
 

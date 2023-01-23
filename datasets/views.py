@@ -72,11 +72,30 @@ floodDataset = pd.read_csv('D:\School\\4th Year\ITD112\\visualization-app\\visua
 floodDataset=floodDataset.dropna()
 floodDataset= floodDataset[floodDataset['flood_heig'] != 0]
 floodDataset= floodDataset[floodDataset['flood_heig'] != 1]
-def getFloodDataset(request):
+# floodDataset= floodDataset[floodDataset['percipitat'] != 0]
 
+def getFloodDataset(request):
+	print(floodDataset.columns)
 	lat_names  = floodDataset['lat']
 	lon_names  = floodDataset['lon']
 	level_names = floodDataset['flood_heig']
+	# elev_names = floodDataset['elevation']
+	# precip_names = floodDataset['precipitat']
+	res = {'lat':[], 'lon': [], 'size': []}
+	for i in floodDataset.index:
+		lat = lat_names[i]
+		long = lon_names[i]
+		level = level_names[i]
+		res['lat'].append(float(lat))
+		res['lon'].append(float(long))
+		res['size'].append(float(level))
+	return JsonResponse(res, safe=False)
+
+def getFloodDataset_precip(request):
+
+	lat_names  = floodDataset['lat']
+	lon_names  = floodDataset['lon']
+	level_names = floodDataset['precipitat']
 	# elev_names = floodDataset['elevation']
 	# precip_names = floodDataset['precipitat']
 	res = {'lat':[], 'lon': [], 'size': []}
